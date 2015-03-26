@@ -3,17 +3,12 @@ development:
   encoding: unicode
   database: troll_poll_dev
   pool: 5
-  username: ahmad
-  password: password
-  host: localhost
 
 test: 
   adapter: postgresql
   encoding: unicode
   database: troll_poll_test
   pool: 5
-  username: ahmad
-  password: password
   host: localhost
 
 production:
@@ -21,6 +16,4 @@ production:
   encoding: unicode
   database: troll_poll_pro
   pool: 5
-  username: ahmad
-  password: password
   host: localhost
