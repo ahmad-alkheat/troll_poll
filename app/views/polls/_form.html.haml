@@ -2,9 +2,10 @@
   - if @poll.errors.any?
     #error_explanation
       %h2= "#{pluralize(@poll.errors.count, "error")} "
-      %ul
+      %ul{:class => "alert alert-danger"}
         - @poll.errors.full_messages.each do |msg|
-          %li= msg
+          .container
+            %li= msg
 
   .form-group
     = f.label :title
