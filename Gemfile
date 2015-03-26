@@ -47,6 +47,7 @@ end
 group :test do
   gem 'minitest-rails-capybara'
   gem 'shoulda'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 gem 'haml-rails'
