@@ -44,4 +44,8 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'minitest-rails-capybara'
+end
+
 gem 'haml-rails'
