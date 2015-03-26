@@ -5,7 +5,7 @@ class CanCreateNewPollTest < Capybara::Rails::TestCase
     visit root_path
     click_link "New Poll"
     fill_in "Title", :with => "TestPoll"
-    click_button "Create Poll"
+    click_button "Save"
     assert page.has_content?("TestPoll")
     assert page.has_content?("Edit")
   end
