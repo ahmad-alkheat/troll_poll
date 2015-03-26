@@ -9,4 +9,12 @@ class CanCreateNewPollTest < Capybara::Rails::TestCase
     assert page.has_content?("TestPoll")
     assert page.has_content?("Edit")
   end
+
+  test "creates unvalid new poll" do
+    visit root_path
+    click_link "New Poll"
+    fill_in "Title", :with => ""
+    click_button "Save"
+    assert page.has_content?("Title can't be blank")
+  end
 end

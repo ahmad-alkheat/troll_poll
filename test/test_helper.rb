@@ -13,6 +13,7 @@ require "minitest/rails/capybara"
 
 class ActiveSupport::TestCase
     ActiveRecord::Migration.check_pending!
+    include FactoryGirl::Syntax::Methods
 
     # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
