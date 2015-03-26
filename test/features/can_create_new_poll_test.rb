@@ -1,9 +1,12 @@
 require "test_helper"
 
 class CanCreateNewPollTest < Capybara::Rails::TestCase
-  test "sanity" do
+  test "creates new poll" do
     visit root_path
-    assert_content page, "Hello World"
-    refute_content page, "Goobye All!"
+    click_link "New Poll"
+    fill_in "Title", :with => "TestPoll"
+    click_button "Create Poll"
+    assert page.has_content?("TestPoll")
+    assert page.has_content?("Edit")
   end
 end
