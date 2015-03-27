@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class QuestionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should validate_presence_of(:title)
+  should validate_inclusion_of(:kind).in_array(ApplicationHelper::QUESTION_KINDS)
 end

@@ -9,7 +9,7 @@ class CanCreateQuestionTest < Capybara::Rails::TestCase
     visit new_poll_question_path(@question.poll_id)
     assert_equal "/polls/#{@question.poll_id}/questions/new", current_path
     fill_in "Title", :with => "what is your name?"
-    fill_in "Kind", :with => "open"
+    select "open", :from => "Kind"
     click_button 'Save'
     assert page.has_content?("Question was successfully created.")
   end

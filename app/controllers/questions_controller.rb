@@ -1,16 +1,11 @@
 class QuestionsController < ApplicationController
   
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy]
   before_action :set_poll
 
   def index
     @questions = @poll.questions
   end
-
-  
-  def show
-  end
-
   
   def new
     @question = @poll.questions.build
@@ -26,7 +21,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to poll_questions_path(@poll), notice: 'Question was successfully created.' }
+        format.html { redirect_to poll_path(@poll), notice: 'Question was successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,7 +32,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to poll_questions_path(@poll), notice: 'Question was successfully updated.' }
+        format.html { redirect_to poll_path(@poll), notice: 'Question was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -48,7 +43,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to [@poll,@question], notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to poll_path(@poll), notice: 'Question was successfully destroyed.' }
     end
   end
 
