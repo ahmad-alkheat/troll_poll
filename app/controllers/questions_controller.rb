@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to [@poll, @question], notice: 'Question was successfully updated.' }
+        format.html { redirect_to poll_questions_path(@poll), notice: 'Question was successfully updated.' }
       else
         format.html { render :edit }
       end

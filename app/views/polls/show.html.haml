@@ -12,5 +12,7 @@
   - @poll.questions.each do |question|
     %li
       = question.title
+      \|
+      = link_to "Edit Question", edit_poll_question_path(@poll,question)
 
 %p= link_to 'Add new question to this poll', new_poll_question_path(@poll), class: 'btn btn-primary'
