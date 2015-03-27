@@ -1,5 +1,5 @@
 module ApplicationHelper
   
-  QUESTION_KINDS = ["yes/no","open"]
+  QUESTION_KINDS = ["choices","open"]
 
 end

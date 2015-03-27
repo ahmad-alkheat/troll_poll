@@ -1,0 +1,11 @@
+
+%p
+  %b Title:
+  = @question.title
+%p
+  %b Kind:
+  = @question.kind
+
+= link_to 'Edit', edit_poll_question_path(@question.poll,@question)
+\|
+= link_to 'Back', polls_path
