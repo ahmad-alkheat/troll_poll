@@ -19,6 +19,7 @@ class CanCreateQuestionTest < Capybara::Rails::TestCase
     click_link "#{@question.poll.title}"
     click_link "Edit Question"
     fill_in "Title", :with => "Edited title"
+    select "open", :from => "Kind"
     click_button 'Save'
     #assert_equal 'asd',page.body
     assert page.has_content?("Question was successfully updated.")

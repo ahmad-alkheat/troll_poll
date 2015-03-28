@@ -15,6 +15,11 @@
       \|
       .div{class: "btn-group"}
         = link_to "Edit Question", edit_poll_question_path(@poll,question), class: 'btn btn-default'
-        = link_to "Delete Question", poll_question_path(@poll,question), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-default'
+        = link_to "Delete Question", poll_question_path(@poll,question), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-default' 
+      %ul
+        - question.possible_answers.each do |p|
+          %li= p.title
+      
+
 
 %p= link_to 'Add new question to this poll', new_poll_question_path(@poll), class: 'btn btn-primary'

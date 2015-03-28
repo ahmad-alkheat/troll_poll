@@ -14,7 +14,6 @@ class QuestionsController < ApplicationController
 
   
   def edit
-
   end
 
   
@@ -60,6 +59,6 @@ class QuestionsController < ApplicationController
     end
 
     def question_params
-      params.require(:question).permit(:title, :kind, :poll_id, { possible_answers_attributes: [:id, :title, :question_id]})
+      params.require(:question).permit(:title, :kind, :poll_id, { possible_answers_attributes: [:id, :title, :question_id, :_destroy]})
     end
 end
