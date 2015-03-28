@@ -14,8 +14,10 @@
     = f.label :kind
     = f.select :kind, options_for_select(ApplicationHelper::QUESTION_KINDS)
   .form-group
-    = f.fields_for :possible_answers, @possible_answer do |a|
-      %p= a.text_field :title, class: 'form-control', placeholder: "Enter a choice for your multiple choice question"
+    = f.fields_for :possible_answers do |a|
+      = render 'possible_answer_fields', :f => a
+    .links
+      = link_to_add_association 'add choice', f, :possible_answers
 
   .actions
     = f.submit 'Save', class: 'btn btn-primary'
