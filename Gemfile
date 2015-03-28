@@ -52,8 +52,4 @@ end
 
 gem 'haml-rails'
 gem 'bootstrap-sass'
-<<<<<<< HEAD
 gem "cocoon"
-=======
-gem 'cocoon'
->>>>>>> possible_answers
