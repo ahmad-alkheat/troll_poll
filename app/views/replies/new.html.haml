@@ -2,4 +2,6 @@
 = form_for [@poll,@reply] do |f|
   = f.fields_for :answers do |c|
     %p= c.label :value, c.object.question.title
-    %p= c.text_field :value
+    =render c.object.question.kind, c: c
+
+  =f.submit
