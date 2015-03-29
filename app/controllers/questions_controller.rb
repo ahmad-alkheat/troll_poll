@@ -39,8 +39,8 @@ class QuestionsController < ApplicationController
       end
     end
   end
-
   
+
   def destroy
     @question.destroy
     respond_to do |format|
