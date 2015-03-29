@@ -5,6 +5,7 @@ class RepliesController < ApplicationController
     @reply = @poll.replies.build
     @poll.questions.each do |question|
       @reply.answers.build question: question
+    end
   end
 
   def create
@@ -25,3 +26,4 @@ class RepliesController < ApplicationController
     params.require(:reply).pemrit(:poll_id, {answers_attributes: [:id, :value, :question_id, :possible_answer_id]})
   end
 end
+
