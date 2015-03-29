@@ -1,0 +1,7 @@
+.radio
+  - c.object.question.possible_answers.each do |p|
+    %p
+      
+      =c.radio_button :possible_answer_id, p.id
+      =p.title
+      =c.hidden_field :question_id
