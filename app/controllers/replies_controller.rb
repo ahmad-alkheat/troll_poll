@@ -22,6 +22,6 @@ class RepliesController < ApplicationController
   private 
 
   def reply_params
-    params.require(:reply).pemrit({answers_attributes: [:value, :question_id, :possible_answer_id]})
+    params.require(:reply).pemrit(:poll_id, {answers_attributes: [:id, :value, :question_id, :possible_answer_id]})
   end
 end
