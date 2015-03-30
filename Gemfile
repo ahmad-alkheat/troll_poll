@@ -54,3 +54,4 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem "cocoon"
 gem 'rails_12factor'
+gem 'devise'
