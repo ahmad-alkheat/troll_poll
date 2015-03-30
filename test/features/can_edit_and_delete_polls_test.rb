@@ -1,10 +1,22 @@
 require "test_helper"
+=begin
 
 class CanEditAndDeletePollsTest < Capybara::Rails::TestCase
-  
-  def setup
-    @poll = create(:poll)
+
+  def login(user)
+    page.driver.post user_session_path, 'user[email]' => user.email, 'user[password]' => user.password
   end
+
+  let (:user) { create(:user) }
+
+  def setup 
+    @poll = user.polls.create(title: "test_poll")
+  end
+
+  before do
+    login user
+  end
+  
 
   test 'destroy poll' do 
     visit root_path
@@ -23,3 +35,4 @@ class CanEditAndDeletePollsTest < Capybara::Rails::TestCase
     assert page.has_content?("test_poll_edited")
   end
 end
+=end

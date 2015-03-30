@@ -1,5 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @polls = Poll.all
@@ -9,14 +10,14 @@ class PollsController < ApplicationController
   end
 
   def new
-    @poll = Poll.new
+    @poll = current_user.polls.build
   end
 
   def edit
   end
 
   def create
-    @poll = Poll.new(poll_params)
+    @poll = current_user.polls.build(poll_params)
 
     respond_to do |format|
       if @poll.save
@@ -49,7 +50,7 @@ class PollsController < ApplicationController
   private
    
     def set_poll
-      @poll = Poll.find(params[:id])
+      @poll = current_user.polls.find(params[:id])
     end
 
     def poll_params

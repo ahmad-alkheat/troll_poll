@@ -17,9 +17,14 @@
         <li class="active">
           <a href="/polls">Polls</a>
         </li>
-      
-        
+      </ul>
+      <ul class="nav navbar-right">
+        <% if current_user %>
+          signed in as <%= current_user.email %><br/>
+          <%= link_to("Log out",destroy_user_session_path, method: :delete) %>
+        <%end%>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+
 </nav>
