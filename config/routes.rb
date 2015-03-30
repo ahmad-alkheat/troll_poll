@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :polls do
-    resources :questions
+    resources :questions, except: [:show]
     resources :replies, only: [:new, :create]
   end
 
