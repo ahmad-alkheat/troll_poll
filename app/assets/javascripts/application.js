@@ -15,13 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
-$(document).ready(function() {
-	$("#question_kind").change(function () {
-		if (this.value == "choices") {
-			$('.formy').slideDown(350)	
-		}
-		else {
-			$('.formy').slideUp(350)
-		}
-	});
+$(document).on('change','#question_kind',function(){
+	if (this.value == "choices") {
+		$('.formy').slideDown(350)	
+	}
+	else {
+		$('.formy').slideUp(350)
+	}
 });
