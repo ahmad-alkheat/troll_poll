@@ -1,0 +1,6 @@
+.jumbotron
+  %h1 Welcome to Troll Poll. 
+  %h2 You can browse polls and answer them without creating an account.
+  %h2 You want to create a poll? Then you must create an account. 
+  = link_to "Browse Polls", polls_path, class: "btn btn-primary btn-lg"
+  = link_to "Create an account", new_user_registration_path, class: "btn btn-primary btn-lg"
