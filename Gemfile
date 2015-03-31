@@ -50,6 +50,7 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
 end
 
+gem 'puma'
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem "cocoon"
