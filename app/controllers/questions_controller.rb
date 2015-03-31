@@ -1,7 +1,9 @@
 class QuestionsController < ApplicationController
-  
-  before_action :set_question, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
   before_action :set_poll
+  before_action :authorized, only: [:new, :edit, :destroy, :create]
+  before_action :set_question, only: [:edit, :update, :destroy]
+  
 
   def index
     @questions = @poll.questions
@@ -60,5 +62,12 @@ class QuestionsController < ApplicationController
 
     def question_params
       params.require(:question).permit(:title, :kind, :poll_id, { possible_answers_attributes: [:id, :title, :question_id, :_destroy]})
+    end
+
+    def authorized
+      unless @poll.user == current_user
+        flash[:error] = "You are not the owner of this Poll"
+        redirect_to @poll
+      end
     end
 end

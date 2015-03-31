@@ -19,10 +19,14 @@
         </li>
       </ul>
       <ul class="nav navbar-right">
+        <li class="active">
         <% if current_user %>
-          signed in as <%= current_user.email %><br/>
+          signed in as <%= current_user.email %>
           <%= link_to("Log out",destroy_user_session_path, method: :delete) %>
+        <%elsif%>
+          <%= link_to "Sign in", new_user_session_path %>
         <%end%>
+      </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
