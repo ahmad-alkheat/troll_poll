@@ -12,7 +12,7 @@
     = f.text_field :title, class: 'form-control'
   .form-group
     = f.label :kind
-    = f.select :kind, options_for_select(ApplicationHelper::QUESTION_KINDS)
+    = f.select :kind, options_for_select(ApplicationHelper::QUESTION_KINDS), selected:ApplicationHelper::QUESTION_KINDS.first
   .form-group{style: "display:none", :class => "formy"}
     = f.fields_for :possible_answers do |a|
       = render 'possible_answer_fields', :f => a
