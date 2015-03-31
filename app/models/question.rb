@@ -16,4 +16,5 @@ class Question < ActiveRecord::Base
   def max_5_choices
     errors.add(:base, "You are limited to 5 choices, you have #{self.possible_answers.length}") if self.possible_answers.length > 5 && self.kind == 'choices'
   end
+
 end

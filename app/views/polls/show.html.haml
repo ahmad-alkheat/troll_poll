@@ -3,11 +3,6 @@
   %b Title:
   = @poll.title
 
-= link_to 'Edit', edit_poll_path(@poll)
-\|
-= link_to 'Back', polls_path
-
-
 %ul
   - @poll.questions.each do |question|
     %li
@@ -24,3 +19,5 @@
 
 %p= link_to 'Add new question to this poll', new_poll_question_path(@poll), class: 'btn btn-primary'
 %p= link_to "Answer this poll", new_poll_reply_path(@poll), class: 'btn btn-primary'
+
+%p= link_to 'Back', polls_path

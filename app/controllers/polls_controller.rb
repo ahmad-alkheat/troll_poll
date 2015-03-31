@@ -1,6 +1,7 @@
 class PollsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_poll, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authorized, only: [:edit, :update, :destroy]
 
   def index
     @polls = Poll.all
@@ -50,10 +51,17 @@ class PollsController < ApplicationController
   private
    
     def set_poll
-      @poll = current_user.polls.find(params[:id])
+      @poll = Poll.find(params[:id])
     end
 
     def poll_params
       params.require(:poll).permit(:title)
+    end
+
+    def authorized 
+      unless @poll.user == current_user
+        flash[:error] = "You are not the owner of this poll."
+        redirect_to root_path
+      end
     end
 end
